@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russia</title>
+    <style>
+      /* ==================== RESET & BASE ==================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+
+      /* ==================== NAVIGATION ==================== */
+      .navbar {
+        background: #222;
+        color: white;
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #0d6efd;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #0d6efd;
+      }
+
+      /* ==================== HERO SECTION ==================== */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+          url('https://imgs.search.brave.com/6ytcCPzYDy1bytZwXR_T3cay1F7VIqDKoYMT8hHyQXc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzZjLzEx/L2JjLzZjMTFiYzFk/ODczNDEzYjRiOTIz/Nzk3MjVhYTA0NjNh/LmpwZw?text=Project+Image" alt="Russia Image') center/cover no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      .hero-content h1 {
+        font-size: 3.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero-content .highlight {
+        color: #0d6efd;
+      }
+
+      .hero-content p {
+        font-size: 1.4rem;
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        margin: 0 10px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .btn-primary {
+        background: #0d6efd;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #0b5ed7;
+        transform: translateY(-4px);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background: white;
+        color: #222;
+      }
+
+      /* ==================== SECTIONS ==================== */
+      .section {
+        padding: 100px 5%;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+        color: #222;
+      }
+
+      .bg-light {
+        background-color: #f1f3f5;
+      }
+
+      /* About Section */
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-content img {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      }
+
+      /* Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        transition: transform 0.4s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-12px);
+      }
+
+      .feature-icon {
+        font-size: 3.5rem;
+        margin-bottom: 1.2rem;
+      }
+
+      /* Gallery */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: transform 0.4s;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.06);
+      }
+
+      /* Contact Form */
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        padding: 16px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        font-size: 1.05rem;
+      }
+
+      .contact-form textarea {
+        resize: vertical;
+        min-height: 160px;
+      }
+
+      .contact-form button {
+        align-self: flex-start;
+        padding: 14px 40px;
+        background: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .contact-form button:hover {
+        background: #0b5ed7;
+      }
+
+      /* Footer */
+      footer {
+        background: #222;
+        color: white;
+        text-align: center;
+        padding: 3rem 5%;
+        font-size: 0.95rem;
+      }
+
+      /* ==================== RESPONSIVE ==================== */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none; /* Simple mobile - you can improve later if needed */
+        }
+
+        .hero-content h1 {
+          font-size: 2.8rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        h2 {
+          font-size: 2.3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="logo">Russia</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Welcome to <span class="highlight">RUSSIA</span></h1>
+        <p>This is A School Project Meant For World History</p>
+        <a href="#about" class="btn btn-primary">Learn More</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About Russia </h2>
+        <div class="about-content">
+          <div>
+            <p>Russia is the largest country in the world, spanning both Europe and Asia, with a population of about 145 million people, most of whom live in the western, European part near major cities like Moscow and Saint Petersburg, while the eastern regions are desnsily populated, the country faces several major issues, including a declining and aging population due to low birth rates, health challenges such as high rates of disease and lower life expectancy, economic dependence on oil and gas, regional inequality between developed urban areas and less-developed rural regions, environmental problems like pollution and melting permafrost, and ongoing political tensions that affect its economy and global relationships.
+            </p>
+          </div>
+          <div>
+            <!-- Replace the image link with your own photo or screenshot -->
+            <img src="https://imgs.search.brave.com/6ytcCPzYDy1bytZwXR_T3cay1F7VIqDKoYMT8hHyQXc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzZjLzEx/L2JjLzZjMTFiYzFk/ODczNDEzYjRiOTIz/Nzk3MjVhYTA0NjNh/LmpwZw?text=Project+Image" alt="Russia Image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section bg-light">
+      <div class="container">
+        <h2>Fun Facts on Russia </h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">🚀</div>
+            <h3>Fun Fact 1</h3>
+            <p>Russia is a Huge Country as it takes up 23% of Europe's Land, and 77% of Asia</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌟</div>
+            <h3>Fun Fact 2</h3>
+            <p>The President of Russia is Vladimir Putain.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔧</div>
+            <h3>Fun Fact 3</h3>
+            <p>4.7% of kids in Russia are under the Age of 4 !</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-light">
+      <div class="container">
+        <h2>Contact Us at HunzoChungus@gmail.com</h2>
+        <form class="contact-form" onsubmit="alert('Thank you! Your message has been received. (Demo)'); return false;">
+          <input type="text" placeholder="Your Full Name" required>
+          <input type="email" placeholder="Your Email Address" required>
+          <textarea placeholder="Write your message here..." required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>&copy; Established 2026, A.T.G.D - World History Project</p>
+        <p>Made for [ P-Tech Norwalk ] • All Rights Reserved</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
